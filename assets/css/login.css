@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    outline: 0;
+}
+
+body {
+    background-color: rgba(58, 218, 207, 0.275)
+}
+
+.loginandReg {
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title-box {
+    width: 400px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    color: blue;
+}
+
+.login-box {
+    position: relative;
+    width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.login-box #link_reg {
+    position: absolute;
+    right: 10px;
+}
+
+.reg-box {
+    display: none;
+    position: relative;
+    width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.reg-box #link_login {
+    position: absolute;
+    right: 10px;
+}
+
+.layui-form-item {
+    position: relative;
+}
+
+.layui-form-item input {
+    padding-left: 26px;
+}
+
+.layui-icon {
+    position: absolute;
+    top: 10px;
+    left: 3px;
+}
