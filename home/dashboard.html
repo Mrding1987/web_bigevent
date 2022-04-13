@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echarts主页面</title>
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script src="../assets/lib/echarts.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <ul>
+            <li>
+                <div class="art_num" style="color: #005aff8a;">
+                    <span class="data_num" style="font-size: 36px;">10015</span>
+                    <span>&nbsp;篇</span>
+                </div>
+                <div class="art_item">
+                    <span style="font-size: 12px;">总文章数</span>
+                </div>
+            </li>
+            <li>
+                <div class="art_num" style="color: #42c5d6c7;">
+                    <span class="data_num" style="font-size: 36px;">123</span>
+                    <span>&nbsp;篇</span>
+                </div>
+                <div class="art_item">
+                    <span style="font-size: 12px;">日新增文章数</span>
+                </div>
+            </li>
+            <li>
+                <div class="art_num" style="color: #0bd5fcb3;">
+                    <span class="data_num" style="font-size: 36px;">35</span>
+                    <span>&nbsp;条</span>
+                </div>
+                <div class="art_item">
+                    <span style="font-size: 12px;">评论总数</span>
+                </div>
+            </li>
+            <li>
+                <div class="art_num" style="color: #27df16bd;">
+                    <span class="data_num" style="font-size: 36px;">123</span>
+                    <span>&nbsp;条</span>
+                </div>
+                <div class="art_item">
+                    <span style="font-size: 12px;">日新增评论数</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="main">
+        <div class="main_left"></div>
+        <div class="main_right"></div>
+    </div>
+    <div class="visit"></div>
+
+    <script type="text/javascript">
+        var myChart1 = echarts.init(document.querySelector('.main_left'));
+        let base = +new Date(2022, 1, 1);
+        let oneDay = 24 * 3600 * 1000;
+        let date = [];
+        let data = [Math.random() * 300];
+        for (let i = 1; i < 1000; i++) {
+            var now = new Date((base += oneDay));
+            date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+            data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+        }
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                position: function(pt) {
+                    return [pt[0], '10%'];
+                }
+            },
+            title: {
+                left: 'center',
+                top: 10,
+                text: '月新增文章数'
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: date
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%']
+            },
+            dataZoom: [{
+                type: 'slider',
+                start: 0,
+                end: 10,
+            }, {
+                start: 0,
+                end: 10
+            }],
+            series: [{
+                name: 'Fake Data',
+                type: 'line',
+                symbol: 'none',
+                sampling: 'lttb',
+                itemStyle: {
+                    color: 'rgb(255, 70, 131)'
+                },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgb(255, 158, 68)'
+                    }, {
+                        offset: 1,
+                        color: 'rgb(255, 70, 131)'
+                    }])
+                },
+                data: data
+            }]
+        };
+        myChart1.setOption(option)
+        window.onresize = myChart1.resize
+    </script>
+
+    <script type="text/javascript">
+        var myChart2 = echarts.init(document.querySelector('.main_right'));
+        option = {
+            tooltip: {
+                trigger: 'item'
+            },
+            title: {
+                left: 'center',
+                top: 10,
+                text: '分类文章数量对比'
+            },
+            legend: {
+                top: '14%',
+                left: 'center'
+            },
+            series: [{
+                name: 'Access From',
+                type: 'pie',
+                center: ['50%', '60%'],
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '32',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                    value: 1048,
+                    name: '奇趣事'
+                }, {
+                    value: 735,
+                    name: '会生活'
+                }, {
+                    value: 580,
+                    name: '爱旅行'
+                }, {
+                    value: 484,
+                    name: '趣美味'
+                }]
+            }]
+        };
+        myChart2.setOption(option)
+        window.onresize = myChart2.resize
+    </script>
+
+    <script type="text/javascript">
+        var myChart3 = echarts.init(document.querySelector('.visit'))
+        option = {
+            title: {
+                text: '文章访问量',
+                left: 'center',
+                top: 10
+            },
+            grid: {
+                show: true,
+                left: 'center',
+                top: '18%',
+                width: '92%'
+            },
+            legend: {
+                top: '10%',
+                left: 'center'
+            },
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['类别', '奇趣事', '会生活', '爱旅行', '趣美味'],
+                    ['1月', 800, 400, 500, 600],
+                    ['2月', 700, 450, 700, 500],
+                    ['3月', 900, 550, 500, 700],
+                    ['4月', 1100, 700, 800, 900]
+                ]
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {},
+            // Declare several bar series, each will be mapped
+            // to a column of dataset.source by default.
+            series: [{
+                type: 'bar'
+            }, {
+                type: 'bar'
+            }, {
+                type: 'bar'
+            }]
+        };
+
+        myChart3.setOption(option)
+        window.onresize = myChart3.resize
+    </script>
+</body>
+
+</html>
