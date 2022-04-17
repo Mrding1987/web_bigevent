@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    list-style: none;
+    outline: none;
+}
+
+body {
+    background-color: #f2f3f5;
+    padding: 15px;
+}
+
+.layui-input {
+    width: 50%;
+}
+
+.layui-form-label {
+    width: 100px;
+}
