@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+
+th {
+    background-color: rgba(192, 224, 118, 0.428);
+}
+
+td,
+th {
+    border: 1px solid rgb(139, 144, 144);
+}
+
+.layui-form-item {
+    margin-right: 10px;
+}
+
+a {
+    color: #fff;
+}

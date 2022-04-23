@@ -12,6 +12,11 @@ $(function() {
 })
 
 function getUserInfo() {
+    // if (!localStorage.getItem('token')) {
+    //     layui.layer.msg('必须先登录系统！')
+    //     location.href = '/login.html'
+    // }
+
     $.ajax({
         type: 'GET',
         url: '/my/userinfo',

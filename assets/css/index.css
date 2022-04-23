@@ -7,6 +7,10 @@
     outline: none;
 }
 
+body {
+    min-width: 1080px;
+}
+
 .layui-icon {
     padding-right: 6px;
 }

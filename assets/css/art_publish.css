@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+
+.layui-form-label {
+    width: 90px;
+}
+
+.cropper-box {
+    width: 400px;
+    height: 300px;
+    background-color: cyan;
+    overflow: hidden;
+}
+
+.w200 {
+    width: 200px;
+    height: 150px;
+}
+
+.row1 {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 110px;
+}
+
+.img-preview {
+    margin-left: 40px;
+    overflow: hidden;
+}
+
+#file {
+    display: none;
+}
+
+#btnselectpic {
+    margin: 20px 0 0 100px;
+}
+
+.btncontainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 0 0 110px;
+}

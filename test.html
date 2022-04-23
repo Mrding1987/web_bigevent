@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/lib/jquery-3.6.0.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2 style="margin: 10px auto">你好</h2>
+    <img src="" alt="封面图片">
+    <p></p>
+
+    <select name="" id="selector">
+        <option value="5">中国</option>
+        <option value="6">美国</option>
+    </select>
+
+    <textarea id="my" cols="30" rows="10"></textarea>
+
+    <script>
+        $(function() {
+            $('#selector').on('change', () => {
+                console.log($('#selector').val());
+            })
+            $('#my').on('change', () => {
+                console.log($('#my').val());
+            })
+
+
+        })
+    </script>
+    <script>
+        var arr = [1, 2, 3, 4, 5, 6, 7]
+        var newArr = []
+
+        newArr = arr.filter((item, index) => index >= 3 && index < 6)
+        console.log(newArr);
+        console.log(arr);
+        newArr.forEach((item, index) => {
+            console.log(item);
+        })
+    </script>
+</body>
+
+</html>

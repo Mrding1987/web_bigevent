@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+
+.layui-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.layui-form-label {
+    width: 90px;
+}
+
+.layui-form-item {
+    margin-top: 20px;
+}
+
+.layui-input {
+    width: 92%;
+}
+
+#catename,
+#cfmedit {
+    margin-left: 111px;
+}
